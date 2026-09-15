@@ -25,3 +25,7 @@ while True:
     else:
         print("Error: Invalid input.")
         failed_entries += 1
+
+print("\n===== Inventory Report =====")
+print("Total Units Processed:", inventory)
+print("Number of Failed/Rejected Entries:", failed_entries)
