@@ -16,5 +16,9 @@ while True:
         inventory += quantity
         print("Current inventory:", inventory)
 
+        if inventory > 500:
+            print("ALERT: Overstock!")
+            break
+        
     else:
         print("Error: Invalid input.")
