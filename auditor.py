@@ -8,6 +8,9 @@ while True:
     if stock.lower() == "quit":
         break
 
-    quantity = int(stock)
+    elif stock.isdigit():
+        quantity = int(stock)
+        print("Stock quantity:", quantity)
 
-    print("Stock quantity:", quantity)
+    else:
+        print("Error: Invalid input.")
