@@ -13,7 +13,8 @@ while True:
 
     elif stock.isdigit():
         quantity = int(stock)
-        print("Stock quantity:", quantity)
+        inventory += quantity
+        print("Current inventory:", inventory)
 
     else:
         print("Error: Invalid input.")
