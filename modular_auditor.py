@@ -27,11 +27,12 @@ def calculate_tax(amount):
 
 def generate_report(total_units, failed_attempts):
     print("\n===== Inventory Report =====")
-    print("Total Units Processed:", total_units)
+    print("Total Deliveries Processed:", total_units)
     print("Number of Failed/Rejected Entries:", failed_attempts)
 
 inventory = 0
 failed_entries = 0
+deliveries_processed = 0
 
 while True:
     stock = get_valid_input()
@@ -45,6 +46,7 @@ while True:
     else:
         inventory = process_delivery(inventory, stock)
         tax = calculate_tax(stock)
+        deliveries_processed += 1
         print("Current inventory:", inventory)
         print("Tax for this delivery:", tax)
 
@@ -52,4 +54,4 @@ while True:
             print("ALERT: Overstock!")
             break
 
-generate_report(inventory, failed_entries)
+generate_report(deliveries_processed, failed_entries)
