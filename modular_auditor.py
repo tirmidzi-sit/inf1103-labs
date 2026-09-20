@@ -17,6 +17,10 @@ def get_valid_input():
         print("Error: Invalid input.")
         return None
 
+def process_delivery(current_total, new_value):
+    new_total = current_total + new_value
+    return new_total
+
 inventory = 0
 failed_entries = 0
 
@@ -30,13 +34,13 @@ while True:
         failed_entries += 1
 
     else:
-        inventory += stock
+        inventory = process_delivery(inventory, stock)
         print("Current inventory:", inventory)
 
         if inventory > 500:
             print("ALERT: Overstock!")
             break
-        
+
 print("\n===== Inventory Report =====")
 print("Total Units Processed:", inventory)
 print("Number of Failed/Rejected Entries:", failed_entries)
