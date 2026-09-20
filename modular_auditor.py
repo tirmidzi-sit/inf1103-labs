@@ -1,31 +1,42 @@
 # Inventory Auditor
 
+def get_valid_input():
+    stock = input("Enter stock quantity or 'quit': ")
+
+    if stock.lower() == "quit":
+        return "quit"
+
+    elif stock.startswith("-") and stock[1:].isdigit():
+        print("Error: Negative numbers are not allowed.")
+        return None
+
+    elif stock.isdigit():
+        return int(stock)
+
+    else:
+        print("Error: Invalid input.")
+        return None
+
 inventory = 0
 failed_entries = 0
 
 while True:
-    stock = input("Enter stock quantity or 'quit': ")
+    stock = get_valid_input()
 
-    if stock.lower() == "quit":
+    if stock == "quit":
         break
 
-    elif stock.startswith("-") and stock[1:].isdigit():
-        print("Error: Negative numbers are not allowed.")
+    elif stock is None:
         failed_entries += 1
 
-    elif stock.isdigit():
-        quantity = int(stock)
-        inventory += quantity
+    else:
+        inventory += stock
         print("Current inventory:", inventory)
 
         if inventory > 500:
             print("ALERT: Overstock!")
             break
         
-    else:
-        print("Error: Invalid input.")
-        failed_entries += 1
-
 print("\n===== Inventory Report =====")
 print("Total Units Processed:", inventory)
 print("Number of Failed/Rejected Entries:", failed_entries)
