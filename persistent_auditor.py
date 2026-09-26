@@ -46,7 +46,13 @@ while True:
         print("Orders successfully saved to inventory.txt")
         break
 
-    quantity = input("Enter Quantity: ")
+    while True:
+        quantity = input("Enter Quantity: ")
+
+        if quantity.isdigit() and int(quantity) > 0:
+            break
+
+        print("Invalid quantity. Please enter a positive number.")
 
     if inventory:
         last_id = int(inventory[-1][0])
