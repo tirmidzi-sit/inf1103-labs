@@ -72,7 +72,7 @@ def update_stock():
             new_stock = int(input("Enter New Stock Quantity: "))
             product["stock"] = new_stock
 
-            print("Stock updated successfully.")
+            print("Product added successfully!")
             return
 
     print("Product not found.")
@@ -120,7 +120,7 @@ def menu():
         print("5. Save Inventory")
         print("6. Exit")
 
-        choice = input("Enter your choice: ")
+        choice = input("Enter option: ")
 
         if choice == "1":
             display_all()
