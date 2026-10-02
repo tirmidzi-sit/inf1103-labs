@@ -1,3 +1,7 @@
+import json
+import os
+
+
 inventory = [
     {
         "id": "P001",
@@ -20,6 +24,21 @@ inventory = [
 ]
 
 
+def load_inventory():
+    global inventory
+
+    if os.path.exists("inventory.json"):
+        print("inventory.json found.")
+
+        with open("inventory.json", "r") as file:
+            inventory = json.load(file)
+
+        print("Inventory loaded successfully.")
+    else:
+        print("inventory.json not found.")
+        inventory = []
+
+
 def display_all():
     print("\nCurrent Inventory")
     print("----------------------------------------")
@@ -35,4 +54,5 @@ def display_all():
     print("----------------------------------------")
 
 
+load_inventory()
 display_all()
